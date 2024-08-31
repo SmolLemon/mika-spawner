@@ -1,17 +1,12 @@
-/*
-No way kokoyuki channel saw this and made a video about this lol. With some upgrades too. My respects for working through those upgrades on this chatgpt code mess.
-Anyway channel owner if you're reading this I just want to hold you solely responsible for giving the koyuki brainrot to me. My brain is now NIHAHAHAHA, love ya.
-*/
-
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     const bgm = document.getElementById('bgm');
     const bgmIcon = document.getElementById('bgm-icon');
-    let nihahahaSoundSrc = './sounds/nihahaha.ogx';
-    let uwahSoundSrc = './sounds/uwah.ogx';
+    let okeSoundSrc = './sounds/oke.ogg';
+    let uwaSoundSrc = './sounds/uwa.ogg';
     let isBgmOn = false;
-    bgm.volume = 0.8;
+    bgm.volume = 0.5;
 
     window.addEventListener("dragstart", (e)=>e.preventDefault());
 
@@ -35,13 +30,13 @@ function init() {
 
     function handleBodyClick(event) {
         if (event.target.id === 'bgm-icon') return;  // Ensure the click on BGM icon does not spawn another icon
-        const iconType = Math.random() < 0.9 ? 'nihahaha' : 'uwah';
+        const iconType = Math.random() < 0.9 ? 'oke' : 'uwa';
         playSound(iconType);
         addIcon(event, iconType);
     }
 
     function playSound(type) {
-        const sound = new Audio(type === 'nihahaha' ? nihahahaSoundSrc : uwahSoundSrc);
+        const sound = new Audio(type === 'oke' ? okeSoundSrc : uwaSoundSrc);
         sound.play();
     }
 
