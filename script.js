@@ -6,7 +6,7 @@ function init() {
     let okeSoundSrc = './sounds/oke.ogg';
     let uwaSoundSrc = './sounds/uwa.ogg';
     let isBgmOn = false;
-    bgm.volume = 0.5;
+    bgm.volume = 0.6;
 
     window.addEventListener("dragstart", (e)=>e.preventDefault());
 
@@ -30,7 +30,7 @@ function init() {
 
     function handleBodyClick(event) {
         if (event.target.id === 'bgm-icon') return;  // Ensure the click on BGM icon does not spawn another icon
-        const iconType = Math.random() < 0.9 ? 'oke' : 'uwa';
+        const iconType = Math.random() < 0.85 ? 'oke' : 'uwa';
         playSound(iconType);
         addIcon(event, iconType);
     }
@@ -41,7 +41,7 @@ function init() {
     }
 
     function addIcon(event, iconType) {
-        const iconSize = Math.floor(Math.random() * 51) + 100; // Random size between 100 and 150 inclusive
+        const iconSize = Math.floor(Math.random() * 51) + 100 + (iconType === 'uwa' ? 35 : 0); // Random size between 100 and 150 inclusive
         const icon = document.createElement('img');
         icon.classList.add('icon');
         icon.style.left = `${event.clientX}px`;
